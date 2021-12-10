@@ -56,8 +56,12 @@ function resetPasswordEmail(token, email, user) {
           style="font-size: 16px; text-decoration: none; background-color: #1752ab; color: #fff; padding-top: 6px; padding-bottom: 6px; padding-right: 10px; padding-left: 10px; margin-bottom: 32px;">
           Reset My Password
         </a>
+		
+		<p>
 		Or copy and paste the link in your web browser
 		https://amaify-invoice.netlify.app/reset-password/${token}
+		</p>
+
         <p style="font-size: 18px; color: #777;">
           Ignore this email if you did not initiate this request.
         </p>
