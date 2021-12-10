@@ -1,5 +1,9 @@
 {
 	"env": {
+		"DB_USERNAME": "amaify",
+		"DB_PASSWORD": "flowers12",
+		"MONGODB_DEFAULT_DB": "invoiceApp",
+		"PORT": 8080,
 		"GOOGLE_USERNAME": "ifyama29@gmail.com",
 		"USER_PASSWORD": "zcyyfmfnxdrweghc",
 		"REFRESH_TOKEN": "1//04BNh1Q6JeZ_TCgYIARAAGAQSNwF-L9Ir4mIjCl4ZvfSrx2RzmG0bDChbXFPtc4A8ZZ8I90DlCgCYppxk8-s5DAWge_lgF2hWuyM",
