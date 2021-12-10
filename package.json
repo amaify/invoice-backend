@@ -1,0 +1,27 @@
+{
+	"name": "invoice-app",
+	"version": "1.0.0",
+	"description": "An Invoice App",
+	"main": "app.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "nodemon app.js"
+	},
+	"author": "Tobechukwu Ugwuanyi",
+	"license": "ISC",
+	"devDependencies": {
+		"nodemon": "^2.0.10"
+	},
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"connect-mongodb-session": "^2.4.1",
+		"express": "^4.17.1",
+		"express-session": "^1.17.2",
+		"googleapis": "^91.0.0",
+		"jsonwebtoken": "^8.5.1",
+		"lodash": "^4.17.21",
+		"mongoose": "^5.13.2",
+		"nodemailer": "^6.7.1",
+		"validator": "^13.6.0"
+	}
+}
