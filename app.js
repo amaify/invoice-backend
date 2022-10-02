@@ -5,9 +5,13 @@ const authRoutes = require("./routes/authentication");
 const invoiceRoutes = require("./routes/invoice");
 const isAuth = require("./middleware/isAuth");
 
+const DBUsername = process.env.DB_USERNAME;
+const DBPassword = process.env.DB_PASSWORD;
+const DB = process.env.MONGODB_DEFAULT_DB;
+
 const app = express();
 
-const MONGODB_URI = `mongodb+srv://amaify:flowers12@invoice-app.kj0qv.mongodb.net/invoiceApp?retryWrites=true&w=majority`;
+const MONGODB_URI = `mongodb+srv://${DBUsername}:${DBPassword}@invoice-app.kj0qv.mongodb.net/${DB}?retryWrites=true&w=majority`;
 
 app.use(express.json());
 
@@ -36,5 +40,5 @@ mongoose
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 	})
-	.then(() => app.listen(8080))
-	.catch((err) => console.log(err));
+	.then(() => app.listen(process.env.PORT || 8080))
+	.catch((err) => console.log(err.message));
