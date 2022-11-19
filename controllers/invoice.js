@@ -3,9 +3,6 @@ const Invoice = require("../models/invoice");
 
 const utilityController = require("../utils/totalPrice");
 
-// const invoice = require("../models/invoice");
-// const invoice = require("../models/invoice");
-
 exports.createInvoice = async (req, res, next) => {
 	let dateCreated, sumTotal;
 
@@ -41,8 +38,6 @@ exports.createInvoice = async (req, res, next) => {
 
 	const user = await User.findById(req.userId);
 
-	// console.log(`${req.userId} invoice`);
-
 	if (!user) {
 		return res
 			.status(401)
@@ -62,12 +57,6 @@ exports.createInvoice = async (req, res, next) => {
 		creator: user,
 		clientName: clientName,
 		clientEmail: clientEmail,
-		// clientAddress: {
-		// 	street: street,
-		// 	city: city,
-		// 	postCode: postCode,
-		// 	country: country,
-		// },
 		clientStreet: street,
 		clientPostCode: postCode,
 		clientCity: city,
@@ -93,7 +82,6 @@ exports.createInvoice = async (req, res, next) => {
 	}
 
 	if (createdInvoice) {
-		// return res.status(201).json({ invoice: createdInvoice, statusCode: 201 });
 		return res
 			.status(201)
 			.json({ message: "Invoice successfully created", statusCode: 201 });
@@ -107,11 +95,7 @@ exports.getInvoices = async (req, res, next) => {
 		return res.status(401).json({ message: "Not Authenticated" });
 	}
 
-	// const user = req.userId;
 	const user = await User.findById(req.userId);
-	// const invoiceId = req.params.invoiceId;
-
-	// console.log(req.userId);
 
 	const invoice = await Invoice.find({ creator: { $eq: user } });
 
@@ -120,7 +104,6 @@ exports.getInvoices = async (req, res, next) => {
 			console.log(error);
 			return res.status(400).json({ errorMessage: error });
 		} else {
-			// console.log(result);
 			return res.status(200).json({ invoice: invoice, statusCode: 200 });
 		}
 	});
@@ -215,12 +198,6 @@ exports.updateInvoice = async (req, res, next) => {
 		status: status,
 		clientName: clientName,
 		clientEmail: clientEmail,
-		// clientAddress: {
-		// 	street: street,
-		// 	city: city,
-		// 	postCode: postCode,
-		// 	country: country,
-		// },
 		clientStreet: street,
 		clientPostCode: postCode,
 		clientCity: city,
@@ -246,8 +223,6 @@ exports.updateInvoice = async (req, res, next) => {
 	if (!mainUpdate) {
 		return res.status(400).json({ message: "Update Failed", statusCode: 400 });
 	}
-
-	// console.log(updatedInvoice.status);
 
 	return res.status(201).json({
 		message: "Invoice Successfully updated!",

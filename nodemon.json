@@ -1,8 +1,6 @@
 {
 	"env": {
-		"DB_USERNAME": "amaify",
-		"DB_PASSWORD": "flowers12",
-		"MONGODB_DEFAULT_DB": "invoiceApp",
+		"MONGO_CONNECTION_STRING": "mongodb+srv://amaify:flowers12@invoice-app.kj0qv.mongodb.net/invoiceApp?retryWrites=true&w=majority",
 		"PORT": 8080,
 		"GOOGLE_USERNAME": "ifyama29@gmail.com",
 		"USER_PASSWORD": "zcyyfmfnxdrweghc",

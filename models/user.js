@@ -2,16 +2,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-	// firstName: {
-	// 	type: String,
-	// 	required: true,
-	// },
-
-	// lastName: {
-	// 	type: String,
-	// 	required: true,
-	// },
-
 	userName: {
 		type: String,
 		required: true,
@@ -53,26 +43,6 @@ const userSchema = new Schema({
 			required: true,
 		},
 	},
-
-	// senderStreet: {
-	// 	type: String,
-	// 	required: true,
-	// },
-
-	// senderCity: {
-	// 	type: String,
-	// 	required: true,
-	// },
-
-	// senderPostCode: {
-	// 	type: String,
-	// 	required: true,
-	// },
-
-	// senderCountry: {
-	// 	type: String,
-	// 	required: true,
-	// },
 
 	invoice: [
 		{

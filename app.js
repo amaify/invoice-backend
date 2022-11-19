@@ -1,17 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 const authRoutes = require("./routes/authentication");
 const invoiceRoutes = require("./routes/invoice");
 const isAuth = require("./middleware/isAuth");
 
-const DBUsername = process.env.DB_USERNAME;
-const DBPassword = process.env.DB_PASSWORD;
-const DB = process.env.MONGODB_DEFAULT_DB;
-
 const app = express();
 
-const MONGODB_URI = `mongodb+srv://${DBUsername}:${DBPassword}@invoice-app.kj0qv.mongodb.net/${DB}?retryWrites=true&w=majority`;
+const MONGODB_URI = process.env.MONGO_CONNECTION_STRING;
 
 app.use(express.json());
 

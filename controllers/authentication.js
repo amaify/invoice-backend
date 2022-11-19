@@ -7,8 +7,6 @@ const jwt = require("jsonwebtoken");
 const { resetPasswordEmail } = require("../utils/mail");
 
 exports.createUser = async (req, res, next) => {
-	// const firstName = req.body.firstName;
-	// const lastName = req.body.lastName;
 	const userName = req.body.userName;
 	const email = req.body.email;
 	const password = req.body.password;
@@ -54,10 +52,6 @@ exports.createUser = async (req, res, next) => {
 			postCode: postCode,
 			country: country,
 		},
-		// senderStreet: streetName,
-		// senderCity: city,
-		// senderPostCode: postCode,
-		// senderCountry: country,
 	});
 
 	const createdUser = await user.save();
@@ -94,16 +88,8 @@ exports.userLogin = async (req, res, next) => {
 		{ expiresIn: "1h" }
 	);
 
-	// req.isAuth = true;
-
-	// console.log(req.isAuth);
-	// console.log(user);
-
 	return res.status(200).json({
 		token: token,
-		// expiresIn: token.expiresIn,
-		// email: user.userEmail,
-		// userName: user.userName,
 		senderAddress: {
 			street: user.senderAddress.street,
 			city: user.senderAddress.city,
@@ -114,31 +100,10 @@ exports.userLogin = async (req, res, next) => {
 	});
 };
 
-// exports.logout = async (req, res, next) => {
-// 	const user = await User.findById(req.userId);
-
-// 	if (!user) {
-// 		return res.status(400).json({ message: "Not Authorized" });
-// 	}
-
-// 	jwt.sign(
-// 		{
-// 			userId: "",
-// 			email: "",
-// 		},
-// 		"logout",
-// 		{ expiresIn: 1 }
-// 	);
-
-// 	return res.json({ message: "Successfully logged out!", statusCode: 200 });
-// };
-
 exports.forgotPassword = async (req, res, next) => {
 	const email = req.body.email;
 
 	const user = await User.findOne({ userEmail: email });
-
-	// console.log(user);
 
 	if (!user) {
 		return res
